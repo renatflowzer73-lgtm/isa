@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISA | Студия перманентного макияжа в Ульяновске</title>
+<meta name="description" content="Студия перманентного макияжа ISA в Ульяновске: перманент бровей и губ, ламинирование, долговременная укладка, тридинг, косметология. Проспект Зырина, 17.">
+<meta name="theme-color" content="#2C0912">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ISA | Студия перманентного макияжа в Ульяновске">
+<meta property="og:description" content="Перманентный макияж бровей и губ, косметология. Качество и результат с первой процедуры.">
+<meta property="og:image" content="assets/works/portrait-01.jpg">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#services">Перейти к услугам</a>
+
+<!-- ШАПКА -->
+<header class="top" id="top">
+  <a class="mark" href="#top" aria-label="ISA — студия перманентного макияжа, наверх">
+    <svg class="mark__sign" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="59" fill="#5E1122"/>
+      <circle cx="60" cy="60" r="52.5" fill="none" stroke="#C9A56E" stroke-width="1"/>
+      <text x="60" y="58" class="mark__isa">ISA</text>
+      <line x1="34" y1="68" x2="86" y2="68" stroke="#C9A56E" stroke-width="0.8"/>
+      <text x="60" y="82" class="mark__sub">STUDIO</text>
+    </svg>
+    <span class="mark__word">ISA<em>studio</em></span>
+  </a>
+
+  <nav class="nav" aria-label="Разделы сайта">
+    <a href="#services">Услуги</a>
+    <a href="#works">Работы</a>
+    <a href="#masters">Мастера</a>
+    <a href="#how">Как проходит</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+
+  <a class="btn btn--gold top__cta" href="#contacts">Записаться</a>
+</header>
+
+<main>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="hero__text">
+    <h1 class="hero__title">Контур и брови,<br>которые держатся<br><em>годами</em></h1>
+    <p class="hero__lead">Студия перманентного макияжа в Ульяновске. Тонкие линии, чистая работа, результат с первой процедуры.</p>
+
+    <div class="hero__actions">
+      <a class="btn btn--gold" href="#contacts">Записаться</a>
+      <a class="btn btn--ghost" href="#works">Смотреть работы</a>
+    </div>
+
+    <dl class="hero__facts">
+      <div><dt>Перманент бровей и губ</dt><dd>7 000 — 9 000 ₽</dd></div>
+      <div><dt>Студия</dt><dd>пр-т Зырина, 17</dd></div>
+    </dl>
+  </div>
+
+  <!-- ЛЕНТА РАБОТ: заполняется из js/data.js -->
+  <div class="hero__reel" id="reel" aria-hidden="true"></div>
+</section>
+
+<!-- УСЛУГИ -->
+<section class="band band--light" id="services">
+  <div class="wrap">
+    <h2 class="h2">Услуги и цены</h2>
+    <p class="lede">Точную стоимость мастер называет на консультации: она зависит от исходных данных, плотности пигмента и объёма работы.</p>
+
+    <ul class="price" id="price"></ul>
+
+    <p class="note">Косметологические процедуры обсуждаются на очной консультации. Имеются противопоказания, необходима консультация специалиста.</p>
+  </div>
+</section>
+
+<!-- РАБОТЫ -->
+<section class="band band--dark" id="works">
+  <div class="wrap">
+    <h2 class="h2">Работы студии</h2>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- МАСТЕРА -->
+<section class="band band--light" id="masters">
+  <div class="wrap">
+    <h2 class="h2">Два мастера. Одна команда</h2>
+
+    <article class="master">
+      <div class="master__photo tile"><img src="assets/works/procedure-01.jpg" alt="Мастер студии ISA за работой" loading="lazy" width="1400" height="2100"></div>
+      <div class="master__body">
+        <h3 class="h3">Сабина</h3>
+        <p class="master__role">Основатель студии, мастер перманентного макияжа</p>
+        <p>Работает с бровями и губами: графичные брови, техника «градиент», контур и плотный цвет губ. Аккуратность, чистота и тонкие изящные линии — основа работы студии.</p>
+        <a class="link" href="https://t.me/isa_sabi">Написать Сабине</a>
+      </div>
+    </article>
+
+    <article class="master master--flip">
+      <div class="master__photo tile"><img src="assets/works/procedure-03.jpg" alt="Косметолог студии ISA на приёме" loading="lazy" width="1400" height="933"></div>
+      <div class="master__body">
+        <h3 class="h3">Диана</h3>
+        <p class="master__role">Косметолог студии</p>
+        <p>Ведёт косметологическое направление: уход, подготовка кожи и процедуры по индивидуальной программе. Программа подбирается на очной консультации после осмотра.</p>
+        <a class="link" href="#contacts">Записаться на консультацию</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- КАК ПРОХОДИТ -->
+<section class="band band--wine" id="how">
+  <div class="wrap">
+    <h2 class="h2">Как проходит процедура</h2>
+    <ol class="steps">
+      <li>
+        <span class="steps__n">1</span>
+        <h3 class="h4">Консультация</h3>
+        <p>Разбираем запрос, смотрим исходные брови или губы, обсуждаем форму и цвет. Проверяем противопоказания.</p>
+      </li>
+      <li>
+        <span class="steps__n">2</span>
+        <h3 class="h4">Эскиз</h3>
+        <p>Рисуем форму прямо на лице и согласовываем её до начала работы. К пигменту переходим только тогда, когда форма вам нравится.</p>
+      </li>
+      <li>
+        <span class="steps__n">3</span>
+        <h3 class="h4">Процедура</h3>
+        <p>Работаем с обезболиванием и стерильными одноразовыми материалами. Занимает несколько часов вместе с подготовкой.</p>
+      </li>
+      <li>
+        <span class="steps__n">4</span>
+        <h3 class="h4">Заживление</h3>
+        <p>Даём памятку по уходу и остаёмся на связи всё время заживления. Срок коррекции мастер называет индивидуально.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section class="band band--light" id="reviews">
+  <div class="wrap">
+    <h2 class="h2">Отзывы</h2>
+    <div id="reviews-body"></div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="band band--dark" id="contacts">
+  <div class="wrap contacts">
+    <div class="contacts__main">
+      <h2 class="h2">Записаться</h2>
+      <p class="lede">Напишите удобным способом — мастер ответит, подберёт время и назовёт точную стоимость.</p>
+
+      <a class="phone" href="tel:+79378879137">+7 937 887-91-37</a>
+
+      <div class="contacts__btns">
+        <a class="btn btn--gold" href="https://t.me/isa_sabi">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.04 15.8 8.87 19.2c.25 0 .35-.1.48-.23l2.29-2.19 4.75 3.48c.87.49 1.49.23 1.73-.8l3.13-14.65c.28-1.29-.47-1.8-1.32-1.48L1.16 9.98c-1.26.49-1.24 1.19-.21 1.51l4.66 1.45L16.43 6.16c.51-.34.97-.15.59.19z"/></svg>
+          Telegram
+        </a>
+        <a class="btn btn--ghost" href="https://vk.ru/club235192174">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.16 19c-6.17 0-9.69-4.23-9.84-11.26h3.09c.1 5.16 2.38 7.35 4.18 7.8V7.73h2.91v4.46c1.78-.2 3.65-2.22 4.28-4.46h2.91c-.48 2.76-2.51 4.79-3.95 5.62 1.44.68 3.75 2.45 4.63 5.65h-3.2c-.69-2.14-2.4-3.8-4.66-4.02V19z"/></svg>
+          ВКонтакте
+        </a>
+        <a class="btn btn--ghost" href="https://www.instagram.com/isa.studio.pmu/">
+          <svg class="ic ic--stroke" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.1" cy="6.9" r="1.15" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+
+    <address class="contacts__where">
+      <h3 class="h4">Студия</h3>
+      <p>г. Ульяновск,<br>проспект Зырина, 17</p>
+      <a class="link" href="https://yandex.ru/maps/?rtext=~54.310763,48.364267">Построить маршрут</a>
+    </address>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>ISA | Студия перманентного макияжа, Ульяновск</p>
+    <p class="foot__legal">Имеются противопоказания. Необходима консультация специалиста.</p>
+  </div>
+</footer>
+
+<!-- ПЛАВАЮЩИЕ КНОПКИ -->
+<div class="float">
+  <a class="float__b" href="tel:+79378879137" aria-label="Позвонить в студию">
+    <svg class="ic ic--stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.3 3.5h3l1.5 3.8-2 1.3a12.4 12.4 0 0 0 6.6 6.6l1.3-2 3.8 1.5v3a2 2 0 0 1-2.2 2A17.6 17.6 0 0 1 4.3 5.7a2 2 0 0 1 2-2.2Z"/></svg>
+  </a>
+  <a class="float__b float__b--tg" href="https://t.me/isa_sabi" aria-label="Написать в Telegram">
+    <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.04 15.8 8.87 19.2c.25 0 .35-.1.48-.23l2.29-2.19 4.75 3.48c.87.49 1.49.23 1.73-.8l3.13-14.65c.28-1.29-.47-1.8-1.32-1.48L1.16 9.98c-1.26.49-1.24 1.19-.21 1.51l4.66 1.45L16.43 6.16c.51-.34.97-.15.59.19z"/></svg>
+  </a>
+</div>
+
+<!-- ЛАЙТБОКС -->
+<div class="lb" id="lb" hidden>
+  <button class="lb__x" id="lb-x" aria-label="Закрыть">
+    <svg class="ic ic--stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <img class="lb__img" id="lb-img" src="" alt="">
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "ISA | Студия перманентного макияжа",
+  "image": "assets/works/portrait-01.jpg",
+  "telephone": "+7-937-887-91-37",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "проспект Зырина, 17",
+    "addressLocality": "Ульяновск",
+    "addressCountry": "RU"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 54.310763, "longitude": 48.364267 },
+  "sameAs": [
+    "https://www.instagram.com/isa.studio.pmu/",
+    "https://vk.ru/club235192174",
+    "https://t.me/isa_sabi"
+  ]
+}
+</script>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

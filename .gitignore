@@ -1,0 +1,24 @@
+# секреты — никогда в репозиторий
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials*
+*token*
+*password*
+
+# системное
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# редакторы
+.vscode/
+.idea/
+*.swp
+
+# скиллы держим локально, как и в проекте khan
+.claude/

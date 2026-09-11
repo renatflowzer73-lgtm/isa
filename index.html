@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
@@ -22,25 +22,21 @@
 
 <!-- ШАПКА -->
 <header class="top" id="top">
-  <a class="mark" href="#top" aria-label="ИСА — студия перманента, наверх">
-    <!-- знак студии: круг, «ИСА» антиквой, линия с точками, подпись в разрядку -->
-    <svg class="mark__sign" viewBox="0 0 200 200" role="img" aria-hidden="true">
-      <circle cx="100" cy="100" r="100" fill="#5C0F1E"/>
-      <text x="100" y="93" class="mark__isa">ИСА</text>
-      <g fill="none" stroke="#F8E2D4" stroke-width="1.6">
-        <line x1="4" y1="111" x2="66" y2="111"/>
-        <line x1="134" y1="111" x2="196" y2="111"/>
-      </g>
-      <circle cx="66" cy="111" r="3.2" fill="#F8E2D4"/>
-      <circle cx="134" cy="111" r="3.2" fill="#F8E2D4"/>
-      <text x="100" y="133" class="mark__sub">СТУДИЯ ПЕРМАНЕНТА</text>
+  <a class="mark" href="#top" aria-label="ISA — студия перманентного макияжа, наверх">
+    <svg class="mark__sign" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="59" fill="#5E1122"/>
+      <circle cx="60" cy="60" r="52.5" fill="none" stroke="#C9A56E" stroke-width="1"/>
+      <text x="60" y="58" class="mark__isa">ISA</text>
+      <line x1="34" y1="68" x2="86" y2="68" stroke="#C9A56E" stroke-width="0.8"/>
+      <text x="60" y="82" class="mark__sub">STUDIO</text>
     </svg>
+    <span class="mark__word">ISA<em>studio</em></span>
   </a>
 
   <nav class="nav" aria-label="Разделы сайта">
+    <a href="#masters">Мастера</a>
     <a href="#services">Услуги</a>
     <a href="#works">Работы</a>
-    <a href="#masters">Мастера</a>
     <a href="#how">Как проходит</a>
     <a href="#contacts">Контакты</a>
   </nav>
@@ -66,9 +62,20 @@
       <a class="btn btn--ghost" href="#works">Смотреть работы</a>
     </div>
 
+    <div class="hero__meta">
+      <a class="hero__addr" href="https://yandex.ru/maps/?rtext=~54.310763,48.364267">
+        Ульяновск, проспект Зырина, 17
+      </a>
+      <ul class="hero__soc">
+        <li><a href="https://max.ru/u/f9LHodD0cOIEh5yF2mMOgf6p2r7abJAkCS8EGBmWcnrrz3Cc80wyYjBLEoQ">MAX</a></li>
+        <li><a href="https://t.me/isa_sabi">Telegram</a></li>
+        <li><a href="https://vk.ru/club235192174">ВКонтакте</a></li>
+        <li><a href="https://www.instagram.com/isa.studio.pmu/">Instagram</a></li>
+      </ul>
+    </div>
+
     <dl class="hero__facts">
       <div><dt>Перманент бровей и губ</dt><dd>7 000 — 9 000 ₽</dd></div>
-      <div><dt>Студия в Ульяновске</dt><dd>пр-т Зырина, 17</dd></div>
     </dl>
   </div>
 
@@ -76,28 +83,8 @@
   <div class="hero__reel" id="reel" aria-hidden="true"></div>
 </section>
 
-<!-- УСЛУГИ -->
-<section class="band band--light" id="services">
-  <div class="wrap">
-    <h2 class="h2">Услуги и цены</h2>
-    <p class="lede">Точную стоимость мастер называет на консультации: она зависит от исходных данных, плотности пигмента и объёма работы.</p>
-
-    <ul class="price" id="price"></ul>
-
-    <p class="note">Косметологические процедуры обсуждаются на очной консультации. Имеются противопоказания, необходима консультация специалиста.</p>
-  </div>
-</section>
-
-<!-- РАБОТЫ -->
-<section class="band band--dark" id="works">
-  <div class="wrap">
-    <h2 class="h2">Работы студии</h2>
-    <div class="grid" id="grid"></div>
-  </div>
-</section>
-
 <!-- МАСТЕРА -->
-<section class="band band--light" id="masters">
+<section class="band band--light band--light-2" id="masters">
   <div class="wrap">
     <h2 class="h2">Три мастера. Одна команда</h2>
 
@@ -133,6 +120,26 @@
   </div>
 </section>
 
+<!-- УСЛУГИ -->
+<section class="band band--light" id="services">
+  <div class="wrap">
+    <h2 class="h2">Услуги и цены</h2>
+    <p class="lede">Точную стоимость мастер называет на консультации: она зависит от исходных данных, плотности пигмента и объёма работы.</p>
+
+    <ul class="price" id="price"></ul>
+
+    <p class="note">Косметологические процедуры обсуждаются на очной консультации. Имеются противопоказания, необходима консультация специалиста.</p>
+  </div>
+</section>
+
+<!-- РАБОТЫ -->
+<section class="band band--dark" id="works">
+  <div class="wrap">
+    <h2 class="h2">Работы студии</h2>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
 <!-- КАК ПРОХОДИТ -->
 <section class="band band--wine" id="how">
   <div class="wrap">
@@ -151,12 +158,12 @@
       <li>
         <span class="steps__n">3</span>
         <h3 class="h4">Процедура</h3>
-        <p>Работаем с обезболиванием и стерильными одноразовыми материалами. Занимает несколько часов вместе с подготовкой.</p>
+        <p>Работаем с обезболиванием и стерильными одноразовыми материалами. Занимает 1—1,5 часа вместе с эскизом.</p>
       </li>
       <li>
         <span class="steps__n">4</span>
         <h3 class="h4">Заживление</h3>
-        <p>Даём памятку по уходу и остаёмся на связи всё время заживления. Срок коррекции мастер называет индивидуально.</p>
+        <p>Даём памятку по уходу и остаёмся на связи всё время заживления. Коррекция — не позднее полутора месяцев после процедуры.</p>
       </li>
     </ol>
   </div>
@@ -252,7 +259,7 @@
 }
 </script>
 
-<script src="js/data.js?v=4"></script>
-<script src="js/app.js?v=4"></script>
+<script src="js/data.js?v=5"></script>
+<script src="js/app.js?v=5"></script>
 </body>
 </html>

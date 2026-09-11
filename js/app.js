@@ -14,6 +14,27 @@
     });
   };
 
+  /* ---------- страница всегда открывается сверху ----------
+     По умолчанию браузер возвращает посетителя туда, где он был
+     в прошлый раз, и первый экран проходит мимо. Для одностраничника
+     это ошибка: человек попадает в середину прайса вместо приглашения.
+     Ссылку с якорем (#master-dinara) при этом не трогаем.              */
+
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+  function toTop() {
+    if (location.hash) return;
+    var html = document.documentElement;
+    var prev = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";   // иначе плавная прокрутка покажет рывок
+    window.scrollTo(0, 0);
+    html.style.scrollBehavior = prev;
+  }
+
+  toTop();
+  window.addEventListener("load", toTop);
+  window.addEventListener("pageshow", function (e) { if (e.persisted) toTop(); });
+
   /* ---------- лента работ в главном экране ---------- */
 
   var reel = document.getElementById("reel");

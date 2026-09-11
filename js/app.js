@@ -105,8 +105,8 @@
               '<a class="link" href="' + esc(m.linkHref) + '">' + esc(m.linkText) + "</a>" +
             "</div>" +
           "</div>" +
-          '<div class="mcard__price"><h4 class="h4">Прайс</h4>' + price + "</div>" +
-          '<div class="mcard__works"><h4 class="h4">Работы</h4>' + works + "</div>" +
+          '<div class="mcard__price"><h4 class="h4">Прайс ' + esc(m.gen || m.name) + "</h4>" + price + "</div>" +
+          '<div class="mcard__works"><h4 class="h4">Работы ' + esc(m.gen || m.name) + "</h4>" + works + "</div>" +
         "</article>"
       );
     }).join("");

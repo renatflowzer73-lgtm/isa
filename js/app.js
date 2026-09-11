@@ -79,6 +79,7 @@
         return (
           '<div class="mprice__group">' +
             '<h5 class="mprice__title">' + esc(g.group) + "</h5>" +
+            (g.note ? '<p class="mprice__note">' + esc(g.note) + "</p>" : "") +
             '<ul class="mprice__list">' +
               g.items.map(function (it) {
                 return (

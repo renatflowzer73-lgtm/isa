@@ -481,16 +481,6 @@ p{ max-width: 68ch; }
 
 /* ---------- мастера ---------- */
 
-.master{
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
-  align-items: center;
-  padding: clamp(2rem, 5vw, 4rem) 0;
-  border-top: 1px solid rgba(94, 17, 34, .2);
-}
-.master--flip{ grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
-.master--flip .master__photo{ order: 2; }
 /* карточки мастеров нарисованы самой студией — показываем целиком, без обрезки */
 .master__photo{ aspect-ratio: 3 / 4; background: var(--paper-2); }
 .master__photo img{ transform: none; }
@@ -509,12 +499,96 @@ p{ max-width: 68ch; }
   background: #F5EEE4;
   z-index: 1;
 }
+
 .master__role{
   font-size: var(--t--1);
   letter-spacing: .06em;
   text-transform: uppercase;
   color: var(--wine);
   margin: 0 0 1.25rem;
+}
+
+
+/* ---------- блок мастера: карточка, прайс, работы ---------- */
+
+.mcard{
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  border-top: 1px solid rgba(94, 17, 34, .22);
+}
+.mcard:first-child{ border-top: 0; padding-top: 0; }
+
+.mcard__top{
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.mcard__price{ margin-top: clamp(2rem, 4vw, 3.5rem); }
+.mcard__works{ margin-top: clamp(2rem, 4vw, 3.5rem); }
+.mcard__price > .h4,
+.mcard__works > .h4{
+  margin-bottom: 1.5rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid rgba(94, 17, 34, .22);
+  color: var(--wine);
+}
+
+/* прайс мастера: группы в колонках, внутри — строки с отточием */
+.mprice__group{ margin-bottom: 2rem; }
+.mprice__group:last-child{ margin-bottom: 0; }
+.mprice__title{
+  font-family: var(--text);
+  font-size: var(--t--1);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin: 0 0 .75rem;
+}
+.mprice__list{ list-style: none; margin: 0; padding: 0; }
+.mprice__list li{
+  display: flex;
+  align-items: baseline;
+  gap: .85rem;
+  padding: .5rem 0;
+}
+.mprice__name{ min-width: 0; overflow-wrap: anywhere; }
+.mprice__rule{
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, rgba(94, 17, 34, .3) 0 2px, transparent 2px 7px);
+  transform: translateY(-4px);
+}
+.mprice__sum{
+  font-family: var(--display);
+  color: var(--wine);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* работы мастера, разложенные по услугам */
+.mworks__set{ margin-bottom: 2.5rem; }
+.mworks__set:last-child{ margin-bottom: 0; }
+.mworks__title{
+  font-family: var(--text);
+  font-size: var(--t--1);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin: 0 0 1rem;
+}
+.shots{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: .75rem;
+}
+.shots .tile{
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
 }
 
 /* ---------- шаги ---------- */
@@ -679,7 +753,7 @@ p{ max-width: 68ch; }
     from{ transform: translate3d(0, 0, 0); }
     to  { transform: translate3d(-50%, 0, 0); }
   }
-  .master, .master--flip .master__photo{ grid-template-columns: 1fr; order: 0; }
+  .mcard__top{ grid-template-columns: 1fr; }
   .contacts{ grid-template-columns: 1fr; }
   .contacts__where{ border-top: 1px solid rgba(201, 165, 110, .25); padding-top: 2rem; }
 }
@@ -689,6 +763,11 @@ p{ max-width: 68ch; }
   .top__cta{ padding: .6rem 1rem; letter-spacing: .06em; }
   .mark__word{ font-size: 1rem; }
   .grid{ gap: .6rem; }
+  .shots{ grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+  /* на узком экране цена мастера тоже уходит под название */
+  .mprice__list li{ display: block; padding: .6rem 0; }
+  .mprice__rule{ display: none; }
+  .mprice__sum{ display: block; margin-top: .3rem; }
   .steps{ grid-template-columns: 1fr; }
   .hero__facts{ gap: 1.5rem; }
   /* на узком экране цена уходит под название, отточие лишнее */

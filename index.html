@@ -14,11 +14,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body>
 
-<a class="skip" href="#services">Перейти к услугам</a>
+<a class="skip" href="#masters">Перейти к мастерам</a>
 
 <!-- ШАПКА -->
 <header class="top" id="top">
@@ -35,7 +35,6 @@
 
   <nav class="nav" aria-label="Разделы сайта">
     <a href="#masters">Мастера</a>
-    <a href="#services">Услуги</a>
     <a href="#works">Работы</a>
     <a href="#how">Как проходит</a>
     <a href="#contacts">Контакты</a>
@@ -83,54 +82,16 @@
   <div class="hero__reel" id="reel" aria-hidden="true"></div>
 </section>
 
-<!-- МАСТЕРА -->
+<!-- МАСТЕРА: блоки собираются скриптом из js/data.js -->
 <section class="band band--light band--light-2" id="masters">
   <div class="wrap">
     <h2 class="h2">Три мастера. Одна команда</h2>
-
-    <article class="master">
-      <div class="master__photo tile"><img src="assets/works/master-sabina.jpg" alt="Сабина, владелец студии ISA" loading="lazy" width="1440" height="1920"></div>
-      <div class="master__body">
-        <h3 class="h3">Сабина</h3>
-        <p class="master__role">Владелец студии, тренер и топ-мастер</p>
-        <p>Долгие годы упорного труда и большое количество обучений привели к статусу тренера и топ-мастера. Работает с бровями и губами: графичные брови, техника «градиент», контур и плотный цвет губ. Понимает запрос с полуслова.</p>
-        <a class="link" href="https://t.me/isa_sabi">Написать Сабине</a>
-      </div>
-    </article>
-
-    <article class="master master--flip">
-      <div class="master__photo tile"><img src="assets/works/master-dinara.jpg" alt="Динара, мастер студии ISA" loading="lazy" width="1440" height="1920"></div>
-      <div class="master__body">
-        <h3 class="h3">Динара</h3>
-        <p class="master__role">Мастер студии</p>
-        <p>Медицинское образование, обучение в этой же студии, опыт работы больше двух лет. Отвечает за комфорт клиента во время процедуры и относится к каждому с большим вниманием.</p>
-        <a class="link" href="#contacts">Записаться на консультацию</a>
-      </div>
-    </article>
-
-    <article class="master">
-      <div class="master__photo master__photo--patch tile"><img src="assets/works/master-diana.jpg" alt="Диана Чернова, врач-косметолог студии ISA" loading="lazy" width="1536" height="2048"></div>
-      <div class="master__body">
-        <h3 class="h3">Диана Чернова</h3>
-        <p class="master__role">Врач-косметолог студии</p>
-        <p>Ведёт косметологическое направление. Любит естественные результаты, индивидуальный подход и комплексную заботу о коже. Программа подбирается на очном приёме.</p>
-        <a class="link" href="#contacts">Записаться на приём</a>
-      </div>
-    </article>
+    <p class="lede">У каждого свой прайс и свои работы. Записаться можно к любому.</p>
+    <div id="masters-body"></div>
+    <p class="note">Косметологические процедуры проводит врач-косметолог после очного приёма. Имеются противопоказания, необходима консультация специалиста.</p>
   </div>
 </section>
 
-<!-- УСЛУГИ -->
-<section class="band band--light" id="services">
-  <div class="wrap">
-    <h2 class="h2">Услуги и цены</h2>
-    <p class="lede">Точную стоимость мастер называет на консультации: она зависит от исходных данных, плотности пигмента и объёма работы.</p>
-
-    <ul class="price" id="price"></ul>
-
-    <p class="note">Косметологические процедуры обсуждаются на очной консультации. Имеются противопоказания, необходима консультация специалиста.</p>
-  </div>
-</section>
 
 <!-- РАБОТЫ -->
 <section class="band band--dark" id="works">
@@ -259,7 +220,7 @@
 }
 </script>
 
-<script src="js/data.js?v=5"></script>
-<script src="js/app.js?v=5"></script>
+<script src="js/data.js?v=6"></script>
+<script src="js/app.js?v=6"></script>
 </body>
 </html>

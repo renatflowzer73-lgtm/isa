@@ -1,5 +1,5 @@
 /* ============================================================
-   Логика страницы: лента работ, прайс, галерея, лайтбокс.
+   Логика страницы: лента работ, блоки мастеров, галерея, лайтбокс.
    Данные берутся из js/data.js.
    ============================================================ */
 
@@ -35,23 +35,6 @@
     reel.appendChild(track);
   }
 
-  /* ---------- прайс ---------- */
-
-  var price = document.getElementById("price");
-  if (price && window.SERVICES) {
-    price.innerHTML = SERVICES.map(function (s) {
-      return (
-        "<li>" +
-          '<span class="price__name">' + esc(s.name) +
-            (s.hint ? '<span class="price__hint">' + esc(s.hint) + "</span>" : "") +
-          "</span>" +
-          '<span class="price__rule" aria-hidden="true"></span>' +
-          '<span class="price__sum">' + esc(s.sum) + "</span>" +
-        "</li>"
-      );
-    }).join("");
-  }
-
   /* ---------- галерея ---------- */
 
   var grid = document.getElementById("grid");
@@ -62,6 +45,69 @@
           'aria-label="Открыть фото: ' + esc(w.alt) + '">' +
           '<img src="' + esc(w.src) + '" alt="' + esc(w.alt) + '" loading="lazy" decoding="async">' +
         "</button>"
+      );
+    }).join("");
+  }
+
+  /* ---------- блоки мастеров ---------- */
+
+  var mb = document.getElementById("masters-body");
+  if (mb && window.MASTERS) {
+    mb.innerHTML = MASTERS.map(function (m) {
+      var price = (m.price || []).map(function (g) {
+        return (
+          '<div class="mprice__group">' +
+            '<h5 class="mprice__title">' + esc(g.group) + "</h5>" +
+            '<ul class="mprice__list">' +
+              g.items.map(function (it) {
+                return (
+                  "<li>" +
+                    '<span class="mprice__name">' + esc(it[0]) + "</span>" +
+                    '<span class="mprice__rule" aria-hidden="true"></span>' +
+                    '<span class="mprice__sum">' + esc(it[1]) + "</span>" +
+                  "</li>"
+                );
+              }).join("") +
+            "</ul>" +
+          "</div>"
+        );
+      }).join("");
+
+      var works = (m.works || []).map(function (w) {
+        return (
+          '<div class="mworks__set">' +
+            '<h5 class="mworks__title">' + esc(w.title) + "</h5>" +
+            '<div class="shots">' +
+              w.shots.map(function (src, i) {
+                return (
+                  '<button class="tile" type="button" data-full="' + esc(src) + '" ' +
+                    'aria-label="Открыть фото: ' + esc(w.title) + ", " + (i + 1) + '">' +
+                    '<img src="' + esc(src) + '" alt="' + esc(w.title) + ", работа мастера " +
+                      esc(m.name) + '" loading="lazy" decoding="async">' +
+                  "</button>"
+                );
+              }).join("") +
+            "</div>" +
+          "</div>"
+        );
+      }).join("");
+
+      return (
+        '<article class="mcard" id="master-' + esc(m.id) + '">' +
+          '<div class="mcard__top">' +
+            '<div class="master__photo tile' + (m.patch ? " master__photo--patch" : "") + '">' +
+              '<img src="' + esc(m.photo) + '" alt="' + esc(m.photoAlt) + '" loading="lazy" decoding="async">' +
+            "</div>" +
+            '<div class="master__body">' +
+              '<h3 class="h3">' + esc(m.name) + "</h3>" +
+              '<p class="master__role">' + esc(m.role) + "</p>" +
+              "<p>" + esc(m.bio) + "</p>" +
+              '<a class="link" href="' + esc(m.linkHref) + '">' + esc(m.linkText) + "</a>" +
+            "</div>" +
+          "</div>" +
+          '<div class="mcard__price"><h4 class="h4">Прайс</h4>' + price + "</div>" +
+          '<div class="mcard__works"><h4 class="h4">Работы</h4>' + works + "</div>" +
+        "</article>"
       );
     }).join("");
   }
@@ -115,9 +161,9 @@
     if (lastFocus) lastFocus.focus();
   }
 
-  if (grid && lb) {
-    grid.addEventListener("click", function (e) {
-      var t = e.target.closest(".tile");
+  if (lb) {
+    document.addEventListener("click", function (e) {
+      var t = e.target.closest(".tile[data-full]");
       if (!t) return;
       openLb(t.dataset.full, t.querySelector("img").alt);
     });

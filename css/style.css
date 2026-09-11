@@ -404,7 +404,7 @@ p{ max-width: 68ch; }
   transition: padding-left .5s var(--ease);
 }
 .price li:hover{ padding-left: .6rem; }
-.price__name{ font-family: var(--display); font-size: var(--t-1); line-height: 1.2; }
+.price__name{ font-family: var(--display); font-size: var(--t-1); line-height: 1.2; min-width: 0; overflow-wrap: anywhere; }
 .price__hint{
   display: block;
   font-family: var(--text);
@@ -440,9 +440,8 @@ p{ max-width: 68ch; }
   border: 0;
   padding: 0;
 }
-/* крупный первый кадр и широкий шестой задают ритм сетке */
+/* первый кадр занимает четыре клетки и задаёт ритм сетке */
 .grid .tile:nth-child(1){ grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
-.grid .tile:nth-child(6){ grid-column: span 2; aspect-ratio: auto; }
 
 /* ---------- мастера ---------- */
 
@@ -456,7 +455,12 @@ p{ max-width: 68ch; }
 }
 .master--flip{ grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 .master--flip .master__photo{ order: 2; }
-.master__photo{ aspect-ratio: 4 / 5; }
+/* карточки мастеров нарисованы самой студией и уже в её палитре:
+   показываем целиком и без винного дуотона */
+.master__photo{ aspect-ratio: 3 / 4; background: var(--paper-2); }
+.master__photo::after{ display: none; }
+.master__photo img{ filter: none; transform: none; }
+.master__photo:hover img{ transform: scale(1.02); }
 .master__role{
   font-size: var(--t--1);
   letter-spacing: .06em;
@@ -594,10 +598,14 @@ p{ max-width: 68ch; }
 
 @media (max-width: 1080px){
   .nav{ display: none; }
-  .grid{ grid-template-columns: repeat(2, 1fr); }
-  .grid .tile:nth-child(1){ aspect-ratio: 1 / 1; }
-  .grid .tile:nth-child(6){ grid-column: span 2; }
+  /* три колонки: девять кадров ложатся без пустых клеток */
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+  .grid .tile:nth-child(1){ aspect-ratio: auto; }
   .steps{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px){
+  .grid{ grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 860px){
@@ -635,6 +643,11 @@ p{ max-width: 68ch; }
   .grid{ gap: .6rem; }
   .steps{ grid-template-columns: 1fr; }
   .hero__facts{ gap: 1.5rem; }
+  /* на узком экране цена уходит под название, отточие лишнее */
+  .price li{ display: block; }
+  .price li:hover{ padding-left: 0; }
+  .price__rule{ display: none; }
+  .price__sum{ display: block; margin-top: .6rem; }
 }
 
 @media (prefers-reduced-motion: reduce){

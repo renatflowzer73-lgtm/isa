@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
@@ -22,15 +22,19 @@
 
 <!-- ШАПКА -->
 <header class="top" id="top">
-  <a class="mark" href="#top" aria-label="ISA — студия перманентного макияжа, наверх">
-    <svg class="mark__sign" viewBox="0 0 120 120" aria-hidden="true">
-      <circle cx="60" cy="60" r="59" fill="#5E1122"/>
-      <circle cx="60" cy="60" r="52.5" fill="none" stroke="#C9A56E" stroke-width="1"/>
-      <text x="60" y="58" class="mark__isa">ISA</text>
-      <line x1="34" y1="68" x2="86" y2="68" stroke="#C9A56E" stroke-width="0.8"/>
-      <text x="60" y="82" class="mark__sub">STUDIO</text>
+  <a class="mark" href="#top" aria-label="ИСА — студия перманента, наверх">
+    <!-- знак студии: круг, «ИСА» антиквой, линия с точками, подпись в разрядку -->
+    <svg class="mark__sign" viewBox="0 0 200 200" role="img" aria-hidden="true">
+      <circle cx="100" cy="100" r="100" fill="#5C0F1E"/>
+      <text x="100" y="93" class="mark__isa">ИСА</text>
+      <g fill="none" stroke="#F8E2D4" stroke-width="1.6">
+        <line x1="4" y1="111" x2="66" y2="111"/>
+        <line x1="134" y1="111" x2="196" y2="111"/>
+      </g>
+      <circle cx="66" cy="111" r="3.2" fill="#F8E2D4"/>
+      <circle cx="134" cy="111" r="3.2" fill="#F8E2D4"/>
+      <text x="100" y="133" class="mark__sub">СТУДИЯ ПЕРМАНЕНТА</text>
     </svg>
-    <span class="mark__word">ISA<em>studio</em></span>
   </a>
 
   <nav class="nav" aria-label="Разделы сайта">
@@ -49,8 +53,13 @@
 <!-- ГЛАВНЫЙ ЭКРАН -->
 <section class="hero">
   <div class="hero__text">
-    <h1 class="hero__title">Контур и брови,<br>которые держатся<br><em>годами</em></h1>
-    <p class="hero__lead">Студия перманентного макияжа в Ульяновске. Тонкие линии, чистая работа, результат с первой процедуры.</p>
+    <h1 class="hero__title">Здесь про качество<br>и <em>результат</em></h1>
+
+    <ul class="hero__list">
+      <li>Перманентный макияж губ и бровей</li>
+      <li>Все виды косметологических услуг</li>
+      <li>Долговременная укладка, тридинг, окрашивание</li>
+    </ul>
 
     <div class="hero__actions">
       <a class="btn btn--gold" href="#contacts">Записаться</a>
@@ -59,7 +68,7 @@
 
     <dl class="hero__facts">
       <div><dt>Перманент бровей и губ</dt><dd>7 000 — 9 000 ₽</dd></div>
-      <div><dt>Студия</dt><dd>пр-т Зырина, 17</dd></div>
+      <div><dt>Студия в Ульяновске</dt><dd>пр-т Зырина, 17</dd></div>
     </dl>
   </div>
 
@@ -90,7 +99,7 @@
 <!-- МАСТЕРА -->
 <section class="band band--light" id="masters">
   <div class="wrap">
-    <h2 class="h2">Два мастера. Одна команда</h2>
+    <h2 class="h2">Три мастера. Одна команда</h2>
 
     <article class="master">
       <div class="master__photo tile"><img src="assets/works/master-sabina.jpg" alt="Сабина, владелец студии ISA" loading="lazy" width="1440" height="1920"></div>
@@ -109,6 +118,16 @@
         <p class="master__role">Мастер студии</p>
         <p>Медицинское образование, обучение в этой же студии, опыт работы больше двух лет. Отвечает за комфорт клиента во время процедуры и относится к каждому с большим вниманием.</p>
         <a class="link" href="#contacts">Записаться на консультацию</a>
+      </div>
+    </article>
+
+    <article class="master">
+      <div class="master__photo master__photo--patch tile"><img src="assets/works/master-diana.jpg" alt="Диана Чернова, врач-косметолог студии ISA" loading="lazy" width="1536" height="2048"></div>
+      <div class="master__body">
+        <h3 class="h3">Диана Чернова</h3>
+        <p class="master__role">Врач-косметолог студии</p>
+        <p>Ведёт косметологическое направление. Любит естественные результаты, индивидуальный подход и комплексную заботу о коже. Программа подбирается на очном приёме.</p>
+        <a class="link" href="#contacts">Записаться на приём</a>
       </div>
     </article>
   </div>
@@ -233,7 +252,7 @@
 }
 </script>
 
-<script src="js/data.js?v=2"></script>
-<script src="js/app.js?v=2"></script>
+<script src="js/data.js?v=3"></script>
+<script src="js/app.js?v=3"></script>
 </body>
 </html>

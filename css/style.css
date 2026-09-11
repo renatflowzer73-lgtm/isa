@@ -216,39 +216,29 @@ p{ max-width: 68ch; }
   border-bottom: 1px solid rgba(201, 165, 110, .22);
 }
 
-.mark{ display: flex; align-items: center; gap: .7rem; text-decoration: none; margin-right: auto; }
-.mark__sign{ width: 42px; height: 42px; flex: none; }
+.mark{ display: flex; align-items: center; text-decoration: none; margin-right: auto; }
+.mark__sign{
+  width: 58px; height: 58px; flex: none;
+  transition: transform .5s var(--ease);
+}
+.mark:hover .mark__sign{ transform: scale(1.04); }
 .mark__isa{
   font-family: var(--display);
-  font-size: 30px;
-  fill: var(--gold);
+  font-size: 52px;
+  fill: #F8E2D4;
   text-anchor: middle;
-  letter-spacing: 1px;
+  letter-spacing: 7px;
+  /* разрядка сдвигает строку вправо на половину интервала — возвращаем на место */
+  transform: translateX(-3.5px);
 }
 .mark__sub{
   font-family: var(--text);
-  font-size: 9.5px;
-  font-weight: 500;
-  fill: var(--gold);
+  font-size: 13px;
+  font-weight: 400;
+  fill: #F8E2D4;
   text-anchor: middle;
-  letter-spacing: 3px;
-}
-.mark__word{
-  font-family: var(--display);
-  font-size: 1.15rem;
-  letter-spacing: .12em;
-  color: var(--on-dark);
-  line-height: 1;
-}
-.mark__word em{
-  display: block;
-  font-family: var(--text);
-  font-style: normal;
-  font-size: .58rem;
-  font-weight: 500;
-  letter-spacing: .34em;
-  color: var(--gold);
-  margin-top: .3rem;
+  letter-spacing: 2.2px;
+  transform: translateX(-1.1px);
 }
 
 .nav{ display: flex; gap: 1.75rem; }
@@ -296,12 +286,19 @@ p{ max-width: 68ch; }
   color: var(--gold);
 }
 
-.hero__lead{
-  font-size: var(--t-1);
-  line-height: 1.5;
+.hero__list{
+  list-style: none;
+  margin: 0 0 2.75rem;
+  padding: 0;
+  max-width: min(30rem, 100%);
+  border-top: 1px solid rgba(201, 165, 110, .25);
+}
+.hero__list li{
+  padding: .85rem 0;
+  font-size: var(--t-0);
+  line-height: 1.4;
   color: var(--on-dark-2);
-  max-width: min(29rem, 100%);
-  margin: 0 0 2.5rem;
+  border-bottom: 1px solid rgba(201, 165, 110, .25);
 }
 
 .hero__actions{ display: flex; flex-wrap: wrap; gap: .85rem; }
@@ -447,6 +444,20 @@ p{ max-width: 68ch; }
 .master__photo{ aspect-ratio: 3 / 4; background: var(--paper-2); }
 .master__photo img{ transform: none; }
 .master__photo:hover img{ transform: scale(1.015); }
+
+/* на опубликованной карточке Дианы есть значок «листай карусель» —
+   он из ленты, а не из вёрстки. Закрываем его фоном самой карточки.
+   Заплатка не нужна, как только студия пришлёт файл без значка. */
+.master__photo--patch::before{
+  content: "";
+  position: absolute;
+  left: 57.5%;
+  top: 42.5%;
+  width: 40%;
+  height: 18.5%;
+  background: #F5EEE4;
+  z-index: 1;
+}
 .master__role{
   font-size: var(--t--1);
   letter-spacing: .06em;

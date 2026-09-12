@@ -88,6 +88,16 @@ a{ color: inherit; }
 }
 .skip:focus{ left: 1rem; top: 1rem; }
 
+/* заголовок нужен поисковикам и программам чтения с экрана, но не на экране */
+.vh{
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 /* переход по якорю не должен прятать заголовок под липкую шапку */
 section[id], [id^="master-"]{ scroll-margin-top: 5.5rem; }
 

@@ -11,10 +11,17 @@
 <meta property="og:description" content="Перманентный макияж бровей и губ, косметология. Качество и результат с первой процедуры.">
 <meta property="og:image" content="assets/masters/sabina-brows-01.jpg">
 <link rel="icon" href="assets/favicon.svg">
+<!-- Защита: браузеру разрешено грузить только файлы самого сайта
+     и шрифты Google. Всё прочее — чужие скрипты, кадры, формы —
+     отклоняется, даже если попадёт в разметку. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'self'; form-action 'none'; img-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com">
+<!-- при переходе по внешней ссылке не сообщаем, с какой страницы ушли -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=17">
+<link rel="stylesheet" href="css/style.css?v=18">
 </head>
 <body>
 
@@ -204,7 +211,7 @@
 }
 </script>
 
-<script src="js/data.js?v=17"></script>
-<script src="js/app.js?v=17"></script>
+<script src="js/data.js?v=18"></script>
+<script src="js/app.js?v=18"></script>
 </body>
 </html>

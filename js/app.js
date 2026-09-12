@@ -103,7 +103,7 @@
           '<div class="mworks__set">' +
             '<h5 class="mworks__title">' + esc(w.title) + "</h5>" +
             '<div class="strip">' +
-              '<div class="strip__track" style="animation-duration:' + seconds + 's">' +
+              '<div class="strip__track" data-seconds="' + seconds + '">' +
                 tiles +
               "</div>" +
             "</div>" +
@@ -125,6 +125,12 @@
         "</article>"
       );
     }).join("");
+
+    // длительность ставим свойствами элемента, а не атрибутом style:
+    // встроенные стили пришлось бы разрешать в политике безопасности
+    [].forEach.call(mb.querySelectorAll(".strip__track[data-seconds]"), function (t) {
+      t.style.animationDuration = t.getAttribute("data-seconds") + "s";
+    });
   }
 
   /* ---------- кадры в лентах ----------

@@ -532,7 +532,7 @@ p{ max-width: 68ch; }
 /* в блоке мастера осталась только карточка: имя и должность напечатаны на ней */
 .mcard__top .master__photo{ max-width: min(360px, 100%); margin: 0 auto; }
 
-.mcard__price{ margin-top: clamp(2rem, 4vw, 3.5rem); }
+.mcard__price{ margin-top: clamp(1.5rem, 3vw, 2.5rem); }
 .mcard__works{ margin-top: clamp(2rem, 4vw, 3.5rem); }
 .mcard__price > .h4,
 .mcard__works > .h4{
@@ -543,30 +543,41 @@ p{ max-width: 68ch; }
 }
 
 /* прайс мастера: группы в колонках, внутри — строки с отточием */
-.mprice__group{ margin-bottom: 2rem; }
+/* на широком экране группы идут в две колонки: длинный прайс
+   иначе тянется на полтора экрана */
+@media (min-width: 900px){
+  .mprice{ columns: 2; column-gap: clamp(2rem, 4vw, 4rem); }
+  .mprice__group{ break-inside: avoid; }
+}
+.mprice__group{ margin-bottom: 1.4rem; }
 .mprice__group:last-child{ margin-bottom: 0; }
 .mprice__title{
+  display: inline-block;
   font-family: var(--text);
   font-size: var(--t--1);
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--wine);
-  margin: 0 0 .75rem;
+  color: var(--paper);
+  background: var(--wine);
+  padding: .4rem .95rem;
+  border-radius: 2px;
+  margin: 0 0 .7rem;
 }
+
 .mprice__note{
   font-size: var(--t--1);
-  line-height: 1.55;
+  line-height: 1.5;
   color: var(--on-light-2);
   max-width: 56ch;
-  margin: -.35rem 0 .9rem;
+  margin: 0 0 .7rem;
 }
 .mprice__list{ list-style: none; margin: 0; padding: 0; }
 .mprice__list li{
   display: flex;
   align-items: baseline;
   gap: .85rem;
-  padding: .5rem 0;
+  padding: .3rem 0;
 }
 .mprice__name{ min-width: 0; overflow-wrap: anywhere; }
 .mprice__rule{
@@ -796,7 +807,7 @@ p{ max-width: 68ch; }
   .mark__word{ font-size: 1rem; }
   .grid{ gap: .6rem; }
   /* на узком экране цена мастера тоже уходит под название */
-  .mprice__list li{ display: block; padding: .6rem 0; }
+  .mprice__list li{ display: block; padding: .4rem 0; }
   .mprice__rule{ display: none; }
   .mprice__sum{ display: block; margin-top: .3rem; }
   .steps{ grid-template-columns: 1fr; }

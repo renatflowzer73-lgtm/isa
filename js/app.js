@@ -133,11 +133,41 @@
               '<img src="' + esc(m.photo) + '" alt="' + esc(m.photoAlt) + '" loading="lazy" decoding="async">' +
             "</div>" +
           "</div>" +
-          '<div class="mcard__price"><h4 class="h4">Прайс ' + esc(m.gen || m.name) + "</h4>" + price + "</div>" +
+          '<div class="mcard__price"><h4 class="h4">Прайс ' + esc(m.gen || m.name) + "</h4>" +
+            '<div class="mprice">' + price + "</div></div>" +
           '<div class="mcard__works"><h4 class="h4">Работы ' + esc(m.gen || m.name) + "</h4>" + works + "</div>" +
         "</article>"
       );
     }).join("");
+  }
+
+  /* ---------- кадры в лентах ----------
+     Браузер откладывает загрузку кадров, которые стоят за краем экрана.
+     В ленте они въезжают не прокруткой, а сдвигом, и эту отложенную
+     загрузку он не пересматривает — вместо фотографии едет пустая плитка.
+     Поэтому, как только лента доходит до экрана, снимаем откладывание
+     со всех её кадров разом.                                            */
+
+  function wakeStrip(box) {
+    [].forEach.call(box.querySelectorAll("img[loading='lazy']"), function (img) {
+      img.loading = "eager";
+    });
+  }
+
+  function watchStrips() {
+    var boxes = document.querySelectorAll(".strip, .hero__reel");
+    if (!("IntersectionObserver" in window)) {
+      [].forEach.call(boxes, wakeStrip);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        wakeStrip(en.target);
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: "300px 0px" });
+    [].forEach.call(boxes, function (b) { io.observe(b); });
   }
 
   /* ---------- отзывы ---------- */
@@ -165,6 +195,8 @@
         "</div>";
     }
   }
+
+  watchStrips();
 
   /* ---------- лайтбокс ---------- */
 

@@ -396,8 +396,8 @@ p{ max-width: 68ch; }
           mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
 }
 .hero__track{
-  display: grid;
-  gap: 1.1rem;
+  display: flex;
+  flex-direction: column;
   animation: reel 46s linear infinite;
   will-change: transform;
 }
@@ -423,7 +423,7 @@ p{ max-width: 68ch; }
 }
 .tile:hover img, .tile:focus-visible img{ transform: scale(1.045); }
 
-.hero__reel .tile{ aspect-ratio: 4 / 5; }
+.hero__reel .tile{ flex: 0 0 auto; aspect-ratio: 4 / 5; margin-bottom: 1.1rem; }
 
 /* ---------- полосы ---------- */
 
@@ -594,17 +594,38 @@ p{ max-width: 68ch; }
   color: var(--wine);
   margin: 0 0 1rem;
 }
-.shots{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: .75rem;
+/* лента работ: та же грамматика движения, что и на главном экране —
+   ровный ход, остановка под курсором, растворение по краям */
+.strip{
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
 }
-.shots .tile{
+.strip__track{
+  display: flex;
+  width: max-content;
+  animation: strip 40s linear infinite;
+  will-change: transform;
+}
+.strip:hover .strip__track,
+.strip:focus-within .strip__track{ animation-play-state: paused; }
+@keyframes strip{
+  from{ transform: translate3d(0, 0, 0); }
+  to  { transform: translate3d(-50%, 0, 0); }
+}
+.strip .tile{
+  flex: 0 0 auto;
+  width: clamp(150px, 17vw, 215px);
+  /* отступ задан полем, а не gap: тогда половина ленты равна её копии
+     и на стыке нет скачка */
+  margin-right: .75rem;
   aspect-ratio: 3 / 4;
   cursor: pointer;
   border: 0;
   padding: 0;
 }
+
 
 /* ---------- шаги ---------- */
 
@@ -755,11 +776,12 @@ p{ max-width: 68ch; }
             mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
   }
   .hero__track{
-    grid-auto-flow: column;
-    grid-auto-columns: 58vw;
+    flex-direction: row;
+    width: max-content;   /* иначе половина ленты считается по ширине окна */
     animation-name: reel-x;
     animation-duration: 38s;
   }
+  .hero__reel .tile{ width: 58vw; margin-bottom: 0; margin-right: 1.1rem; }
   @keyframes reel-x{
     from{ transform: translate3d(0, 0, 0); }
     to  { transform: translate3d(-50%, 0, 0); }
@@ -773,7 +795,6 @@ p{ max-width: 68ch; }
   .top__cta{ padding: .6rem 1rem; letter-spacing: .06em; }
   .mark__word{ font-size: 1rem; }
   .grid{ gap: .6rem; }
-  .shots{ grid-template-columns: repeat(2, 1fr); gap: .5rem; }
   /* на узком экране цена мастера тоже уходит под название */
   .mprice__list li{ display: block; padding: .6rem 0; }
   .mprice__rule{ display: none; }
@@ -789,6 +810,6 @@ p{ max-width: 68ch; }
 
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
-  .hero__track{ animation: none; }
+  .hero__track, .strip__track{ animation: none; }
   *{ transition-duration: .01ms !important; }
 }

@@ -96,23 +96,35 @@
       }).join("");
 
       var works = (m.works || []).map(function (w) {
+        // лента едет по кругу: список повторяется, пока не наберётся
+        // достаточно кадров, затем дублируется целиком — стык не виден
+        var base = w.shots.slice();
+        while (base.length < 8) base = base.concat(w.shots);
+        var seconds = Math.max(18, Math.round(base.length * 5));
+
+        var tiles = base.concat(base).map(function (src, i) {
+          return (
+            '<button class="tile" type="button" data-full="' + esc(src) + '" ' +
+              'tabindex="' + (i < base.length ? "0" : "-1") + '" ' +
+              'aria-label="Открыть фото: ' + esc(w.title) + ", " + ((i % base.length) + 1) + '">' +
+              '<img src="' + esc(src) + '" alt="' + esc(w.title) + ", работа мастера " +
+                esc(m.name) + '" loading="lazy" decoding="async">' +
+            "</button>"
+          );
+        }).join("");
+
         return (
           '<div class="mworks__set">' +
             '<h5 class="mworks__title">' + esc(w.title) + "</h5>" +
-            '<div class="shots">' +
-              w.shots.map(function (src, i) {
-                return (
-                  '<button class="tile" type="button" data-full="' + esc(src) + '" ' +
-                    'aria-label="Открыть фото: ' + esc(w.title) + ", " + (i + 1) + '">' +
-                    '<img src="' + esc(src) + '" alt="' + esc(w.title) + ", работа мастера " +
-                      esc(m.name) + '" loading="lazy" decoding="async">' +
-                  "</button>"
-                );
-              }).join("") +
+            '<div class="strip">' +
+              '<div class="strip__track" style="animation-duration:' + seconds + 's">' +
+                tiles +
+              "</div>" +
             "</div>" +
           "</div>"
         );
       }).join("");
+
 
       return (
         '<article class="mcard" id="master-' + esc(m.id) + '">' +

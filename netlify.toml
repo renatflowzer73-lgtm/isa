@@ -1,0 +1,59 @@
+# ============================================================
+# Настройки публикации на Netlify
+# Сайт статический: собирать нечего, просто отдаём папку целиком.
+# ============================================================
+
+[build]
+  publish = "."
+
+# ------------------------------------------------------------
+# Заголовки защиты.
+# На GitHub Pages их задать нельзя, поэтому часть защиты там
+# живёт в разметке. Netlify отдаёт настоящие заголовки — они
+# надёжнее и покрывают то, чего разметка не умеет.
+# ------------------------------------------------------------
+
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    # только свои файлы и шрифты Google; frame-ancestors работает
+    # лишь в заголовке, в разметке браузер его игнорирует
+    Content-Security-Policy = "default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; img-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com"
+
+    # сайт нельзя вставить в чужой фрейм и выдать за свой
+    X-Frame-Options = "DENY"
+
+    # браузер не подменяет заявленный тип файла на угаданный
+    X-Content-Type-Options = "nosniff"
+
+    # внешним сайтам не сообщаем, с какой страницы ушёл посетитель
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # сайту не нужны ни камера, ни микрофон, ни геопозиция, ни оплата
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()"
+
+    # год ходить только по защищённому протоколу
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+    # межсайтовые изоляции: чужая страница не прочитает содержимое
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+
+# фотографии меняются редко — держим их в кэше сутки
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# стили и скрипты помечены номером версии в адресе,
+# поэтому их можно держать дольше
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

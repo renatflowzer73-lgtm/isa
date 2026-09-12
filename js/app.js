@@ -1,5 +1,5 @@
 /* ============================================================
-   Логика страницы: лента работ, блоки мастеров, галерея, лайтбокс.
+   Логика страницы: лента студии, блоки мастеров, галерея работ, лайтбокс.
    Данные берутся из js/data.js.
    ============================================================ */
 
@@ -35,15 +35,15 @@
   window.addEventListener("load", toTop);
   window.addEventListener("pageshow", function (e) { if (e.persisted) toTop(); });
 
-  /* ---------- лента работ в главном экране ---------- */
+  /* ---------- лента с видами студии в главном экране ---------- */
 
   var reel = document.getElementById("reel");
-  if (reel && window.WORKS && WORKS.length) {
+  if (reel && window.STUDIO && STUDIO.length) {
     var track = document.createElement("div");
     track.className = "hero__track";
 
     // список дублируется: вторая половина подхватывает первую без стыка
-    var strip = WORKS.concat(WORKS);
+    var strip = STUDIO.concat(STUDIO);
     strip.forEach(function (w, i) {
       var t = document.createElement("div");
       t.className = "tile";
@@ -56,11 +56,11 @@
     reel.appendChild(track);
   }
 
-  /* ---------- сетка студии ---------- */
+  /* ---------- галерея работ ---------- */
 
-  var grid = document.getElementById("studio-grid");
-  if (grid && window.STUDIO) {
-    grid.innerHTML = STUDIO.map(function (w) {
+  var grid = document.getElementById("grid");
+  if (grid && window.WORKS) {
+    grid.innerHTML = WORKS.map(function (w) {
       return (
         '<button class="tile" type="button" data-full="' + esc(w.src) + '" ' +
           'aria-label="Открыть фото: ' + esc(w.alt) + '">' +

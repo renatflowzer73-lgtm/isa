@@ -470,7 +470,7 @@ p{ max-width: 68ch; }
 
 .grid{
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(min(190px, 46%), 1fr));
   gap: 1.1rem;
 }
 .grid .tile{
@@ -520,7 +520,7 @@ p{ max-width: 68ch; }
 
 .mcard__top{ display: block; }
 /* в блоке мастера осталась только карточка: имя и должность напечатаны на ней */
-.mcard__top .master__photo{ max-width: min(460px, 100%); margin: 0 auto; }
+.mcard__top .master__photo{ max-width: min(360px, 100%); margin: 0 auto; }
 
 .mcard__price{ margin-top: clamp(2rem, 4vw, 3.5rem); }
 .mcard__works{ margin-top: clamp(2rem, 4vw, 3.5rem); }
@@ -725,12 +725,10 @@ p{ max-width: 68ch; }
 
 @media (max-width: 1080px){
   .nav{ display: none; }
-  .grid{ grid-template-columns: repeat(3, 1fr); }
   .steps{ grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 700px){
-  .grid{ grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 860px){

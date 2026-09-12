@@ -25,11 +25,11 @@
   function toTop() {
     if (location.hash) return;
     var html = document.documentElement;
-    var prev = html.style.scrollBehavior;
-    html.style.scrollBehavior = "auto";   // иначе плавная прокрутка покажет рывок
+    html.classList.add("no-smooth");   // иначе прыжок наверх будет видимым
     window.scrollTo(0, 0);
-    html.style.scrollBehavior = prev;
+    html.classList.remove("no-smooth");
   }
+
 
   toTop();
   window.addEventListener("load", toTop);
@@ -84,9 +84,10 @@
       var works = (m.works || []).map(function (w) {
         // лента едет по кругу: список повторяется, пока не наберётся
         // достаточно кадров, затем дублируется целиком — стык не виден
+        // 12 кадров в каждой ленте: одинаковая длина — одинаковая скорость
         var base = w.shots.slice();
-        while (base.length < 8) base = base.concat(w.shots);
-        var seconds = Math.max(18, Math.round(base.length * 5));
+        while (base.length < 12) base = base.concat(w.shots);
+        base = base.slice(0, 12);
 
         var tiles = base.concat(base).map(function (src, i) {
           return (
@@ -103,7 +104,7 @@
           '<div class="mworks__set">' +
             '<h5 class="mworks__title">' + esc(w.title) + "</h5>" +
             '<div class="strip">' +
-              '<div class="strip__track" data-seconds="' + seconds + '">' +
+              '<div class="strip__track">' +
                 tiles +
               "</div>" +
             "</div>" +
@@ -125,12 +126,6 @@
         "</article>"
       );
     }).join("");
-
-    // длительность ставим свойствами элемента, а не атрибутом style:
-    // встроенные стили пришлось бы разрешать в политике безопасности
-    [].forEach.call(mb.querySelectorAll(".strip__track[data-seconds]"), function (t) {
-      t.style.animationDuration = t.getAttribute("data-seconds") + "s";
-    });
   }
 
   /* ---------- кадры в лентах ----------
@@ -202,14 +197,14 @@
     lbImg.src = src;
     lbImg.alt = alt || "";
     lb.hidden = false;
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("locked");
     lbX.focus();
   }
 
   function closeLb() {
     lb.hidden = true;
     lbImg.src = "";
-    document.body.style.overflow = "";
+    document.body.classList.remove("locked");
     if (lastFocus) lastFocus.focus();
   }
 

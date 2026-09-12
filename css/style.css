@@ -49,6 +49,10 @@ html{
   accent-color: var(--wine);
   caret-color: var(--gold);
 }
+/* класс вместо записи в стиль: строгая политика запрещает встроенные стили */
+html.no-smooth{ scroll-behavior: auto; }
+body.locked{ overflow: hidden; }
+
 html::-webkit-scrollbar{ width: 11px; }
 html::-webkit-scrollbar-track{ background: var(--ink); }
 html::-webkit-scrollbar-thumb{
@@ -603,7 +607,8 @@ p{ max-width: 68ch; }
 .strip__track{
   display: flex;
   width: max-content;
-  animation: strip 40s linear infinite;
+  /* во всех лентах по 12 кадров, поэтому скорость одна на всех */
+  animation: strip 60s linear infinite;
   will-change: transform;
 }
 .strip:hover .strip__track,

@@ -805,6 +805,34 @@ p{ max-width: 68ch; }
   .price__sum{ display: block; margin-top: .6rem; }
 }
 
+/* ---------- телефон ---------- */
+
+@media (max-width: 860px){
+  /* Пальцем в строчку высотой 19 пикселей не попасть. Расширяем площадь
+     нажатия невидимым слоем, не трогая сам вид ссылки. */
+  .link, .hero__addr, .hero__soc a{ position: relative; }
+  .link::after,
+  .hero__addr::after,
+  .hero__soc a::after{
+    content: "";
+    position: absolute;
+    left: -.5rem; right: -.5rem; top: 50%;
+    height: 44px;
+    transform: translateY(-50%);
+  }
+  /* строки разводим, чтобы расширенные площади не налезали друг на друга */
+  .hero__meta{ gap: 1rem 1.6rem; }
+  .hero__soc{ gap: 1.1rem 1.3rem; }
+
+  /* плавающие кнопки поменьше и ближе к углу */
+  .float{ right: .75rem; bottom: .75rem; gap: .55rem; }
+  .float__b{ width: 46px; height: 46px; }
+  .float__b .ic{ width: 20px; height: 20px; }
+
+  /* подвал не должен уходить под плавающие кнопки */
+  .foot__in{ padding-bottom: 3.5rem; }
+}
+
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   .hero__track, .strip__track{ animation: none; }

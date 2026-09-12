@@ -52,7 +52,6 @@ var MASTERS = [
           "assets/masters/sabina-brows-01.jpg",
           "assets/masters/sabina-brows-02.jpg",
           "assets/masters/sabina-brows-03.jpg",
-          "assets/masters/sabina-brows-04.jpg",
           "assets/masters/sabina-brows-05.jpg",
           "assets/masters/sabina-brows-06.jpg",
           "assets/masters/sabina-brows-07.jpg"
@@ -251,6 +250,19 @@ var WORKS = [
   { src: "assets/works/portrait-02.jpg", alt: "Клиентка студии после процедуры" },
   { src: "assets/works/brows-03.jpg",    alt: "Зажившие брови без макияжа" },
   { src: "assets/works/brows-04.jpg",    alt: "Брови крупным планом после перманентного макияжа" }
+];
+
+
+/* ---------- СТУДИЯ ----------
+   Снимки пространства студии для одноимённого раздела.
+   Лента на главном экране берёт кадры не отсюда, а из WORKS.        */
+
+var STUDIO = [
+  { src: "assets/studio/studio-01.jpg", alt: "Рабочий зал студии ISA" },
+  { src: "assets/studio/studio-02.jpg", alt: "Подарочные наборы на стойке" },
+  { src: "assets/studio/studio-03.jpg", alt: "Вход и зеркало в студии" },
+  { src: "assets/studio/studio-04.jpg", alt: "Зона ожидания с зеркалом и пампасной травой" },
+  { src: "assets/studio/studio-05.jpg", alt: "Сертификаты мастеров студии" }
 ];
 
 /* ---------- ОТЗЫВЫ ----------

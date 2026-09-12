@@ -470,7 +470,7 @@ p{ max-width: 68ch; }
 
 .grid{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.1rem;
 }
 .grid .tile{
@@ -479,8 +479,6 @@ p{ max-width: 68ch; }
   border: 0;
   padding: 0;
 }
-/* первый кадр занимает четыре клетки и задаёт ритм сетке */
-.grid .tile:nth-child(1){ grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
 
 /* ---------- мастера ---------- */
 
@@ -520,12 +518,9 @@ p{ max-width: 68ch; }
 }
 .mcard:first-child{ border-top: 0; padding-top: 0; }
 
-.mcard__top{
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
-  align-items: center;
-}
+.mcard__top{ display: block; }
+/* в блоке мастера осталась только карточка: имя и должность напечатаны на ней */
+.mcard__top .master__photo{ max-width: min(460px, 100%); margin: 0 auto; }
 
 .mcard__price{ margin-top: clamp(2rem, 4vw, 3.5rem); }
 .mcard__works{ margin-top: clamp(2rem, 4vw, 3.5rem); }
@@ -730,9 +725,7 @@ p{ max-width: 68ch; }
 
 @media (max-width: 1080px){
   .nav{ display: none; }
-  /* три колонки: девять кадров ложатся без пустых клеток */
   .grid{ grid-template-columns: repeat(3, 1fr); }
-  .grid .tile:nth-child(1){ aspect-ratio: auto; }
   .steps{ grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -763,7 +756,6 @@ p{ max-width: 68ch; }
     from{ transform: translate3d(0, 0, 0); }
     to  { transform: translate3d(-50%, 0, 0); }
   }
-  .mcard__top{ grid-template-columns: 1fr; }
   .contacts{ grid-template-columns: 1fr; }
   .contacts__where{ border-top: 1px solid rgba(201, 165, 110, .25); padding-top: 2rem; }
 }

@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=10">
 </head>
 <body>
 
@@ -35,7 +35,7 @@
 
   <nav class="nav" aria-label="Разделы сайта">
     <a href="#masters">Мастера</a>
-    <a href="#works">Работы</a>
+    <a href="#studio">Студия</a>
     <a href="#how">Как проходит</a>
     <a href="#contacts">Контакты</a>
   </nav>
@@ -58,7 +58,7 @@
 
     <div class="hero__actions">
       <a class="btn btn--gold" href="#contacts">Записаться</a>
-      <a class="btn btn--ghost" href="#works">Смотреть работы</a>
+      <a class="btn btn--ghost" href="#masters">Смотреть работы</a>
     </div>
 
     <div class="hero__meta">
@@ -72,10 +72,6 @@
         <li><a href="https://www.instagram.com/isa.studio.pmu/">Instagram</a></li>
       </ul>
     </div>
-
-    <dl class="hero__facts">
-      <div><dt>Перманент бровей и губ</dt><dd>7 000 — 9 000 ₽</dd></div>
-    </dl>
   </div>
 
   <!-- ЛЕНТА РАБОТ: заполняется из js/data.js -->
@@ -86,18 +82,17 @@
 <section class="band band--light band--light-2" id="masters">
   <div class="wrap">
     <h2 class="h2">Три мастера. Одна команда</h2>
-    <p class="lede">У каждого свой прайс и свои работы. Записаться можно к любому.</p>
     <div id="masters-body"></div>
     <p class="note">Косметологические процедуры проводит врач-косметолог после очного приёма. Имеются противопоказания, необходима консультация специалиста.</p>
   </div>
 </section>
 
 
-<!-- РАБОТЫ -->
-<section class="band band--dark" id="works">
+<!-- СТУДИЯ -->
+<section class="band band--dark" id="studio">
   <div class="wrap">
-    <h2 class="h2">Работы студии</h2>
-    <div class="grid" id="grid"></div>
+    <h2 class="h2">Студия</h2>
+    <div class="grid" id="studio-grid"></div>
   </div>
 </section>
 
@@ -220,7 +215,7 @@
 }
 </script>
 
-<script src="js/data.js?v=9"></script>
-<script src="js/app.js?v=9"></script>
+<script src="js/data.js?v=10"></script>
+<script src="js/app.js?v=10"></script>
 </body>
 </html>

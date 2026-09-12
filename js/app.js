@@ -56,11 +56,11 @@
     reel.appendChild(track);
   }
 
-  /* ---------- галерея ---------- */
+  /* ---------- сетка студии ---------- */
 
-  var grid = document.getElementById("grid");
-  if (grid && window.WORKS) {
-    grid.innerHTML = WORKS.map(function (w) {
+  var grid = document.getElementById("studio-grid");
+  if (grid && window.STUDIO) {
+    grid.innerHTML = STUDIO.map(function (w) {
       return (
         '<button class="tile" type="button" data-full="' + esc(w.src) + '" ' +
           'aria-label="Открыть фото: ' + esc(w.alt) + '">' +
@@ -119,12 +119,6 @@
           '<div class="mcard__top">' +
             '<div class="master__photo tile' + (m.patch ? " master__photo--patch" : "") + '">' +
               '<img src="' + esc(m.photo) + '" alt="' + esc(m.photoAlt) + '" loading="lazy" decoding="async">' +
-            "</div>" +
-            '<div class="master__body">' +
-              '<h3 class="h3">' + esc(m.name) + "</h3>" +
-              '<p class="master__role">' + esc(m.role) + "</p>" +
-              "<p>" + esc(m.bio) + "</p>" +
-              '<a class="link" href="' + esc(m.linkHref) + '">' + esc(m.linkText) + "</a>" +
             "</div>" +
           "</div>" +
           '<div class="mcard__price"><h4 class="h4">Прайс ' + esc(m.gen || m.name) + "</h4>" + price + "</div>" +

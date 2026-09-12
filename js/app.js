@@ -1,5 +1,5 @@
 /* ============================================================
-   Логика страницы: лента студии, блоки мастеров, галерея работ, лайтбокс.
+   Логика страницы: лента студии, блоки мастеров, ленты работ, лайтбокс.
    Данные берутся из js/data.js.
    ============================================================ */
 
@@ -54,20 +54,6 @@
     });
 
     reel.appendChild(track);
-  }
-
-  /* ---------- галерея работ ---------- */
-
-  var grid = document.getElementById("grid");
-  if (grid && window.WORKS) {
-    grid.innerHTML = WORKS.map(function (w) {
-      return (
-        '<button class="tile" type="button" data-full="' + esc(w.src) + '" ' +
-          'aria-label="Открыть фото: ' + esc(w.alt) + '">' +
-          '<img src="' + esc(w.src) + '" alt="' + esc(w.alt) + '" loading="lazy" decoding="async">' +
-        "</button>"
-      );
-    }).join("");
   }
 
   /* ---------- блоки мастеров ---------- */

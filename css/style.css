@@ -112,6 +112,7 @@ section[id], [id^="master-"]{ scroll-margin-top: 5.5rem; }
   text-wrap: balance;
   margin: 0 0 1.75rem;
 }
+.h2 em{ font-style: normal; color: var(--gold); }
 .h3{
   font-family: var(--display);
   font-weight: 400;
@@ -476,20 +477,6 @@ p{ max-width: 68ch; }
   font-variant-numeric: tabular-nums;
 }
 
-/* ---------- галерея ---------- */
-
-.grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(190px, 46%), 1fr));
-  gap: 1.1rem;
-}
-.grid .tile{
-  aspect-ratio: 3 / 4;
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-}
-
 /* ---------- мастера ---------- */
 
 /* карточки мастеров нарисованы самой студией — показываем целиком, без обрезки */
@@ -805,7 +792,6 @@ p{ max-width: 68ch; }
   /* навигация уходит, но главное действие остаётся в шапке */
   .top__cta{ padding: .6rem 1rem; letter-spacing: .06em; }
   .mark__word{ font-size: 1rem; }
-  .grid{ gap: .6rem; }
   /* на узком экране цена мастера тоже уходит под название */
   .mprice__list li{ display: block; padding: .4rem 0; }
   .mprice__rule{ display: none; }

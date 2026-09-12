@@ -176,6 +176,15 @@ assets/favicon.svg — значок во вкладке браузера
 GitHub Pages: `renatflowzer73-lgtm.github.io/isa.studio/` — публикуется
 сам при каждом пуше в `main`, настройка в `.github/workflows/pages.yml`.
 
+Адрес на Netlify: `isa-studio-pmu.netlify.app`. Имя `isa-studio` было
+занято, точку в имени Netlify не принимает — `isa.studio` возможно
+только как купленный домен, его потом привязывают к этому же сайту.
+
+Выкладка идёт не всей папкой, а только тем, что под контролем git:
+`git archive main | tar -x -C <папка>`, затем
+`netlify deploy --site <id> --dir <папка> --prod --no-build`.
+Так локальные файлы и `.claude` физически не могут туда попасть.
+
 Netlify: настройки в `netlify.toml`. Там же заданы заголовки защиты,
 которых GitHub Pages не умеет. Netlify подключается к тому же
 репозиторию и публикует при каждом пуше — два адреса живут параллельно
